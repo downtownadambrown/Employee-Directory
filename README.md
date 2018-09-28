@@ -1,4 +1,4 @@
-# Employee-Directory
+# Employee Directory
 
 The goal of this project was to create a web application that simulates that of an employee directory with several specific requirements:
 
