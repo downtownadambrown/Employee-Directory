@@ -1,0 +1,19 @@
+html, body {
+
+}
+
+/*.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}*/
+
+.container-left {
+    width: 25%;
+    height: 100%;
+}
+
+.container-right {
+    width: 75%;
+    height: 100%;
+}
