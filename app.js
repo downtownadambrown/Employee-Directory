@@ -45,5 +45,22 @@ function updateUser(updateName, updateOfficeNumber, updatePhoneNumber){
 }
 
 function deleteUser(removeName){
-    employeeList.splice(locateUserByName(removeName), 1);
+    employeeList.splice(locateUserByName(removeName, 1));
 }
+
+function renderView(){
+    let finalHTML = ``;
+    const contentRef = document.querySelector('main');
+
+    for (let i = 0; i < employeeList.length; i++){
+        finalHTML += `<div class="userEntry"><h3>${employeeList.name}</h3><h3>${employeeList.officeNum}</h3><h3>${employeeList.phoneNum}</h3></div>`;
+    }
+}
+
+//Initialize event listeners on <li> items
+const navList = document.querySelector('ul');
+navList.li[0].addEventListener('click', renderView);
+navList.li[1].addEventListener('click', renderView);
+navList.li[2].addEventListener('click', renderView);
+navList.li[3].addEventListener('click', renderView);
+navList.li[4].addEventListener('click', renderView);
