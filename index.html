@@ -2,46 +2,59 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Employee Directory</title>
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Employee Directory</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="container-left clearfix">
+<div class="container-left clearfix">
     <header>
 
-      <img src="address-book-icon.png" height="75px" width="75px">
-      <nav>
-        <ul>
-          <li><a href="" onclick="return false;">VIEW</a></li>
-          <li><a href="" onclick="addUser(nameQuery.value, officePhoneQuery.value, phoneNumQuery.value);return false;">ADD</a></li>
-          <li><a href="" onclick="return false;">VERIFY</a></li>
-          <li><a href="" onclick="return false;">UPDATE</a></li>
-          <li><a href="" onclick="return false;">DELETE</a></li>
-        </ul>
-      </nav>
+        <img src="address-book-icon.png" id="nav-brand">
+        <nav>
+            <ul>
+                <li><a href="" onclick="return false;">VIEW</a></li>
+                <li><a href=""
+                       onclick="addUser(nameQuery.value, officePhoneQuery.value, phoneNumQuery.value);return false;">ADD</a>
+                </li>
+                <li><a href="" onclick="return false;">VERIFY</a></li>
+                <li><a href="" onclick="return false;">UPDATE</a></li>
+                <li><a href="" onclick="return false;">DELETE</a></li>
+            </ul>
+        </nav>
     </header>
-  </div>
+</div>
 
-  <div class="container-right">
+<div class="container-right">
     <section class="searchbar">
-      <input type="name" class="field" id="nameField" aria-describedby="searchUser" placeholder="Enter Name">
-      <input type="phone" class="field" id="officePhoneField" aria-describedby="searchUser" placeholder="Enter Office Number">
-      <input type="name" class="field" id="phoneNumField" aria-describedby="searchUser" placeholder="Enter Phone Number">
+        <div class="inputWrapper">
+            <input type="name" class="field" id="nameField" aria-describedby="searchUser" placeholder="Enter Name">
+            <input type="phone" class="field" id="officePhoneField" aria-describedby="searchUser"
+                   placeholder="Enter Office Number">
+            <input type="name" class="field" id="phoneNumField" aria-describedby="searchUser"
+                   placeholder="Enter Phone Number">
+            <div id="queryButton" class="clearfix">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+
     </section>
     <main>
 
     </main>
-  </div>
+</div>
 
 
-  <script src="dom.js"></script>
-  <script src="employeeList.js"></script>
-  <script src="app.js"></script>
+<!-- <script src="dom.js"></script> -->
+<script src="employeeList.js"></script>
+<script src="app.js"></script>
 </body>
 
 </html>

@@ -60,7 +60,7 @@ const renderView = () => {
     const contentRef = document.querySelector('main');
 
     for (let i = 0; i < employeeList.length; i++) {
-        finalHTML += `<div class="user"><h2>${employeeList[i].name}</h2><h2>${employeeList[i].officeNum}</h2><h2>${employeeList[i].phoneNum}</h2></div>`;
+        finalHTML += `<div class="user"><h2>Employee Name: ${employeeList[i].name}</h2><h2>Office #: ${employeeList[i].officeNum}</h2><h2>Phone #: ${employeeList[i].phoneNum}</h2></div>`;
     }
 
     contentRef.innerHTML = finalHTML;

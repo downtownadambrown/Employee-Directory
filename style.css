@@ -34,9 +34,15 @@ header {
     transform: translateY(-50%);
 }
 
+#nav-brand {
+    height: 75px;
+    width: 75px;
+    margin-left: 5px;
+}
+
 ul li{
     padding: 10px 0px 10px 0px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Inconsolata', monospace;
     letter-spacing: 2px;
 }
 
@@ -47,7 +53,10 @@ ul li{
 main {
     width: 100%;
 }
-
+.inputWrapper {
+    width: 90%;
+    float: left;
+}
 input {
     width: 33%;
     padding: 12px 20px;
@@ -57,7 +66,23 @@ input {
     border-radius: 4px;
     box-sizing: border-box;
     background-color: #27241f;
+    font-family: 'Inconsolata', monospace;
     color: white;
+}
+
+.fa-search {
+    height: 100%;
+}
+
+#queryButton {
+    width: 39px;
+    height: 39px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 20px;
+    box-sizing: border-box;
+    float: right;
 }
 
 .user {
@@ -69,7 +94,7 @@ input {
 }
 
 h2 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-size: 18px;
     line-height: 1.5;
 }
@@ -79,11 +104,39 @@ a {
     text-decoration: none !important;
 }
 
-@media screen and (max-width:1102px) {
+@media screen and (max-width:1237px) {
+    .inputWrapper {
+        width: 85%;
+    }
+    input {
+        width: 95%;
+    }
+}
+/* 1102 */
+@media screen and (max-width:900px) {
     input {
         width: 100%;
         display: flex;
         flex-direction: column;
         margin-bottom: 5px;
+    }
+
+    .searchbar {
+        width: 95%;
+
+    }
+
+    .inputWrapper {
+        float: left;
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    #queryButton {
+        position: fixed;
+        right:0;
+        float: right;
+        height: 130px;
     }
 }
