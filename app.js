@@ -5,7 +5,7 @@
 const clearFields = () => {
     let fields = document.querySelectorAll('input');
     for (let i = 0; i < fields.length; i++) fields[i].value = "";
-}
+};
 
 const locateUserByName = username => {
     for (let i = 0; i < employeeList.length; i++) {
@@ -30,10 +30,10 @@ const addUser = (newName, newOfficeNum, newPhoneNum) => {
 const verifyUser = (verifyName) => {
     // User does not exist -> Returns false
     if (locateUserByName(verifyName) === -1) {
-        //return false;
+        contentRef.innerHTML = `<p>Sorry -- ${verifyName} does not exist.  Please check to see you typed their name correctly.</p>`;
     }
     else {
-        //return true;
+        contentRef.innerHTML = `<p>Yes -- ${verifyName} exists</p>`;
     }
 };
 
@@ -57,10 +57,9 @@ const deleteUser = (removeName) => {
 
 const renderView = () => {
     let finalHTML = ``;
-    const contentRef = document.querySelector('main');
 
     for (let i = 0; i < employeeList.length; i++) {
-        finalHTML += `<div class="user"><h2>Employee Name: ${employeeList[i].name}</h2><h2>Office #: ${employeeList[i].officeNum}</h2><h2>Phone #: ${employeeList[i].phoneNum}</h2></div>`;
+        finalHTML += `<div class="user"><h2>Name: ${employeeList[i].name}</h2><h2>Office #: ${employeeList[i].officeNum}</h2><h2>Phone #: ${employeeList[i].phoneNum}</h2></div>`;
     }
 
     contentRef.innerHTML = finalHTML;
@@ -71,5 +70,4 @@ const navList = document.querySelectorAll('li');
 const nameQuery = document.querySelector('#nameField');
 const officePhoneQuery = document.querySelector('#officePhoneField');
 const phoneNumQuery = document.querySelector('#phoneNumField');
-
-renderView();
+const contentRef = document.querySelector('main');

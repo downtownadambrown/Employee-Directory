@@ -18,11 +18,11 @@
         <img src="address-book-icon.png" id="nav-brand">
         <nav>
             <ul>
-                <li><a href="" onclick="return false;">VIEW</a></li>
+                <li><a href="" onclick="renderView();return false;">VIEW</a></li>
                 <li><a href=""
                        onclick="addUser(nameQuery.value, officePhoneQuery.value, phoneNumQuery.value);return false;">ADD</a>
                 </li>
-                <li><a href="" onclick="return false;">VERIFY</a></li>
+                <li><a href="" onclick="verifyUser(nameQuery.value);return false;">VERIFY</a></li>
                 <li><a href="" onclick="return false;">UPDATE</a></li>
                 <li><a href="" onclick="return false;">DELETE</a></li>
             </ul>
@@ -32,12 +32,14 @@
 
 <div class="container-right">
     <section class="searchbar">
-            <input type="name" class="field" id="nameField" aria-describedby="searchUser" placeholder="Enter Name">
-            <input type="phone" class="field" id="officePhoneField" aria-describedby="searchUser"
+        <div class="inputWrapper">
+        <input type="name" class="field field1" id="nameField" aria-describedby="searchUser" placeholder="Enter Name">
+            <input type="phone" class="field field2" id="officePhoneField" aria-describedby="searchUser"
                    placeholder="Enter Office Number">
-            <input type="name" class="field" id="phoneNumField" aria-describedby="searchUser"
+            <input type="name" class="field field3" id="phoneNumField" aria-describedby="searchUser"
                    placeholder="Enter Phone Number">
-            <input type="button" id="queryButton">
+            <button id="queryButton" type="submit"><img src="search.png" width="16px" height="16px"></button>
+        </div>
     </section>
     <main>
 

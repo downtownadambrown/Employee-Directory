@@ -24,6 +24,7 @@ html, body {
     float: right;
     margin: 0;
     background-color: #5c5c5c;
+
 }
 
 header {
@@ -47,8 +48,8 @@ ul li{
 }
 
 .searchbar {
-    padding: 16px;
-    height: 41px;
+    padding: 0px;
+    padding-top: 5px;
     width: 100%;
     flex-direction: row;
     display: flex;
@@ -58,8 +59,8 @@ main {
     width: 100%;
 }
 .inputWrapper {
-    width: 90%;
-    float: left;
+    width: 80%;
+    margin: 0 auto;
 }
 .field {
     width: 30%;
@@ -78,6 +79,12 @@ main {
     height: 100%;
 }
 
+p {
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    padding: 5px;
+}
+
 #queryButton {
     width: 41px;
     height: 41px;
@@ -87,7 +94,7 @@ main {
     box-sizing: border-box;
     background-color: #27241f;
     color: white;
-    
+    float: right;
 }
 
 .user {
