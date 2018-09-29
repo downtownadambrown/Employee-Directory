@@ -48,6 +48,10 @@ ul li{
 
 .searchbar {
     padding: 16px;
+    height: 41px;
+    width: 100%;
+    flex-direction: row;
+    display: flex;
 }
 
 main {
@@ -57,8 +61,8 @@ main {
     width: 90%;
     float: left;
 }
-input {
-    width: 33%;
+.field {
+    width: 30%;
     padding: 12px 20px;
     margin: 0;
     display: inline-block;
@@ -66,8 +70,8 @@ input {
     border-radius: 4px;
     box-sizing: border-box;
     background-color: #27241f;
-    font-family: 'Inconsolata', monospace;
     color: white;
+    font-family: 'Inconsolata', monospace;
 }
 
 .fa-search {
@@ -75,14 +79,15 @@ input {
 }
 
 #queryButton {
-    width: 39px;
-    height: 39px;
-    padding: 10px;
+    width: 41px;
+    height: 41px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-right: 20px;
+    margin-left: 3px;
     box-sizing: border-box;
-    float: right;
+    background-color: #27241f;
+    color: white;
+    
 }
 
 .user {
@@ -104,14 +109,6 @@ a {
     text-decoration: none !important;
 }
 
-@media screen and (max-width:1237px) {
-    .inputWrapper {
-        width: 85%;
-    }
-    input {
-        width: 95%;
-    }
-}
 /* 1102 */
 @media screen and (max-width:900px) {
     input {
@@ -123,7 +120,7 @@ a {
 
     .searchbar {
         width: 95%;
-
+        flex-direction: column;
     }
 
     .inputWrapper {
