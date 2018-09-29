@@ -2,65 +2,68 @@
 
 // employeeList = name, officeNum, phoneNum
 
-function locateUserByName(username){
-    for(let i = 0; i < employeeList.length; i++){
-        if(employeeList[i].name === username) return i; // returns index location of the user in employeeList
+const locateUserByName = username => {
+    for (let i = 0; i < employeeList.length; i++) {
+        if (employeeList[i].name === username) {
+            return i;// returns index location of the user in employeeList
+        }
     }
     return -1; // -1 is returned when the user does not exist
-}
+};
 
-function addUser(newName, newOfficeNum, newPhoneNum){
+const addUser = (newName, newOfficeNum, newPhoneNum) => {
     const newUser = {
         name: newName,
         officeNum: newOfficeNum,
         phoneNum: newPhoneNum
-    }
+    };
     employeeList.push(newUser);
-}
+    renderView();
+};
 
-function existsUser(){
-    //will fill this in later if needed
-
-}
-
-function verifyUser(verifyName){
+const verifyUser = (verifyName) => {
     // User does not exist -> Returns false
-    if(locateUserByName(verifyName) === -1){
-        return false;
+    if (locateUserByName(verifyName) === -1) {
+        //return false;
     }
-    else{
-        return true;
+    else {
+        //return true;
     }
-}
+};
 
-function updateUser(updateName, updateOfficeNumber, updatePhoneNumber){
+const updateUser = (updateName, updateOfficeNumber, updatePhoneNumber) => {
     //Check first to escape out with an alert if the user does not exist
-    if (locateUserByName(updateName) == -1){
+    if (locateUserByName(updateName) === -1) {
         alert(`User does not exist`);
-        return;
     }
-    //Make updates to this persons' officeNum and phoneNum in the employeeList
-    employeeList[locateUserByName(updateName)].officeNum = updateOfficeNumber;
-    employeeList[locateUserByName(updateName)].phoneNum = updatePhoneNumber;
-}
+    else {
+        //Make updates to this persons' officeNum and phoneNum in the employeeList
+        employeeList[locateUserByName(updateName)].officeNum = updateOfficeNumber;
+        employeeList[locateUserByName(updateName)].phoneNum = updatePhoneNumber;
+        renderView();
+    }
+};
 
-function deleteUser(removeName){
+const deleteUser = (removeName) => {
     employeeList.splice(locateUserByName(removeName, 1));
-}
+    renderView();
+};
 
-function renderView(){
+const renderView = () => {
     let finalHTML = ``;
     const contentRef = document.querySelector('main');
 
-    for (let i = 0; i < employeeList.length; i++){
-        finalHTML += `<div class="userEntry"><h3>${employeeList.name}</h3><h3>${employeeList.officeNum}</h3><h3>${employeeList.phoneNum}</h3></div>`;
+    for (let i = 0; i < employeeList.length; i++) {
+        finalHTML += `<div class="user"><h2>${employeeList[i].name}</h2><h2>${employeeList[i].officeNum}</h2><h2>${employeeList[i].phoneNum}</h2></div>`;
     }
-}
+
+    contentRef.innerHTML = finalHTML;
+};
 
 //Initialize event listeners on <li> items
-const navList = document.querySelector('ul');
-navList.li[0].addEventListener('click', renderView);
-navList.li[1].addEventListener('click', renderView);
-navList.li[2].addEventListener('click', renderView);
-navList.li[3].addEventListener('click', renderView);
-navList.li[4].addEventListener('click', renderView);
+const navList = document.querySelectorAll('li');
+const nameQuery = document.querySelector('#nameField');
+const officePhoneQuery = document.querySelector('#officePhoneField');
+const phoneNumQuery = document.querySelector('#phoneNumField');
+
+renderView();
