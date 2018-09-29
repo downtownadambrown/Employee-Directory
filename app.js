@@ -2,6 +2,11 @@
 
 // employeeList = name, officeNum, phoneNum
 
+const clearFields = () => {
+    let fields = document.querySelectorAll('input');
+    for (let i = 0; i < fields.length; i++) fields[i].value = "";
+}
+
 const locateUserByName = username => {
     for (let i = 0; i < employeeList.length; i++) {
         if (employeeList[i].name === username) {
@@ -19,6 +24,7 @@ const addUser = (newName, newOfficeNum, newPhoneNum) => {
     };
     employeeList.push(newUser);
     renderView();
+    clearFields();
 };
 
 const verifyUser = (verifyName) => {
