@@ -1,7 +1,7 @@
 $(function () {
 
     const clearFields = function () {
-        let fields = document.querySelectorAll('input');
+        let fields = $('input');
         for (let i = 0; i < fields.length; i++) {
             fields[i].value = "";
         }
@@ -19,12 +19,11 @@ $(function () {
     const addUser = function () {
         const newName = $('.field1').val();
         const newOffice = $('.field2').val();
-        const newOne = parseInt(newOffice); //confusion here
         const newPhoneNum = $('.field3').val();
 
         const newUser = {
             name: newName,
-            officeNum: newOne,
+            officeNum: newOffice,
             phoneNum: newPhoneNum
         };
 
@@ -40,11 +39,12 @@ $(function () {
 
         // User does not exist -> Returns false
         if (locateUserByName(verifyName) === -1) {
-            $(contentRef).html(`<p>Sorry -- ${verifyName} does not exist.  Please check to see you typed their name correctly.</p>`);
+            $('main').html(`<p>Sorry -- ${verifyName} does not exist.  Please check to see you typed their name correctly.</p>`);
         }
         else {
-            $(contentRef).html(`<p>Yes -- ${verifyName} exists</p>`);
+            $('main').html(`<p>Yes -- ${verifyName} exists</p>`);
         }
+        clearFields();
         return false;
     };
 
@@ -56,7 +56,7 @@ $(function () {
 
         //Check first to escape out with an alert if the user does not exist
         if (locateUserByName(updateName) === -1) {
-            $(contentRef).text = `User does not exist`;
+            $('main').text = `User does not exist`;
         }
 
         else {
@@ -65,6 +65,7 @@ $(function () {
             employeeList[locateUserByName(updateName)].phoneNum = updatePhoneNumber;
             renderView();
         }
+        clearFields();
         return false;
     };
 
@@ -73,12 +74,13 @@ $(function () {
         const removeName = $('#nameField').val();
 
         if (locateUserByName(removeName) === -1) {
-            $(contentRef).text = `User does not exist`;
+            $('main').text = `User does not exist`;
         }
         else {
             employeeList.splice(locateUserByName(removeName), 1);
             renderView();
         }
+        clearFields();
         return false;
     };
 
@@ -87,6 +89,7 @@ $(function () {
     };
 
     const renderView = function () {
+        
         clearView();
 
         for (let i = 0; i < employeeList.length; i++) {
@@ -99,57 +102,70 @@ $(function () {
 
     const setQueryBar = function (e) {
         e.preventDefault();
-        clearView();
-        console.log($(this).attr('id'));
+
+        const button1 = `<input type="name" class="field field1" id="nameField" aria-describedby="searchUser"
+                   placeholder="Enter Name">`;
+        const button2 = `<input type="phone" class="field field2" id="officeField" aria-describedby="searchUser"
+                   placeholder="Enter Office Number">`;
+        const button3 = `<input type="name" class="field field3" id="phoneNumField" aria-describedby="searchUser"
+                   placeholder="Enter Phone Number">`;
+        const button4 = `<button id="queryButton">TEXT</button>`;
+
+        
         if ($(this).attr('id') === 'viewbutton') {
-            $(nameQuery).hide();
-            $(officeQuery).hide();
-            $(phoneNumQuery).hide();
-            $(queryButtonRef).hide();
+            $('.field').fadeOut(1000, function() { $(this).remove(); });
+            $('.inputWrapper').empty();
+            //$('#queryButton').fadeOut(1000, function() { $(this).remove(); });
             renderView();
         }
         else if ($(this).attr('id') === 'addbutton') {
-            $(nameQuery).show();
-            $(officeQuery).show();
-            $(phoneNumQuery).show();
-            $(queryButtonRef).show();
-            $(queryButtonRef).on('click', addUser);
+            $('.field').fadeOut(1000, function() { $(this).remove(); });
+            $('.inputWrapper').empty();
+            $('.inputWrapper').html(`${button1}${button2}${button3}${button4}`);  
+            $('.inputWrapper').fadeIn(1000);
+            $('#queryButton').on('click', addUser);
+            $('#queryButton').text('ADD');
         }
         else if ($(this).attr('id') === 'verifybutton') {
-            $(nameQuery).show();
-            $(officeQuery).hide();
-            $(phoneNumQuery).hide();
-            $(queryButtonRef).show();
-            $(queryButtonRef).on('click', verifyUser);
+            $('.field').fadeOut(1000, function() { $(this).remove(); });
+            $('.inputWrapper').html(`${button1}${button4}`); 
+            $('.inputWrapper').fadeIn(1000);
+            $('#queryButton').on('click', verifyUser);
+            $('#queryButton').text('VERIFY');
         }
         else if ($(this).attr('id') === 'updatebutton') {
-            $(nameQuery).show();
-            $(officeQuery).show();
-            $(phoneNumQuery).show();
-            $(queryButtonRef).show();
-            $(queryButtonRef).on('click', updateUser);
+            $('.inputWrapper').html(`${button1}${button2}${button3}${button4}`);  
+            //$(nameQuery).fadeIn();
+            //$(officeQuery).fadeIn();
+            //$(phoneNumQuery).fadeIn();
+            //$(queryButtonRef).fadeIn();
+            $('#queryButton').on('click', updateUser);
+            $('#queryButton').text('UPDATE');
         }
         else if ($(this).attr('id') === 'deletebutton') {
-            $(nameQuery).show();
-            $(officeQuery).hide();
-            $(phoneNumQuery).hide();
-            $(queryButtonRef).show();
-            $(queryButtonRef).on('click', deleteUser);
+            $('.inputWrapper').html(`${button1}${button4}`); 
+            //$(nameQuery).fadeIn();
+            $('#officeField').fadeOut(1000, function() { $(this).remove(); });
+            $('#phoneNumField').fadeOut(1000, function() { $(this).remove(); });
+            //$(queryButtonRef).fadeIn();
+            $('#queryButton').on('click', deleteUser);
+            $('#queryButton').text('DELETE');
         }
         return false;
     };
-
-    const nameQuery = document.querySelector('#nameField');
-    const officeQuery = document.querySelector('#officePhoneField');
-    const phoneNumQuery = document.querySelector('#phoneNumField');
-    const queryButtonRef = document.querySelector('#queryButton');
-    const contentRef = document.querySelector('main');
+/*
+    const nameQuery = $('#nameField');
+    const officeQuery = $('#officeField');
+    const phoneNumQuery = $('#phoneNumField');
+    const queryButtonRef = $('#queryButton');
+    const contentRef = $('main');*/
 
     // Set initial state of search bar (hidden)
+    /*
     $(nameQuery).hide();
     $(officeQuery).hide();
     $(phoneNumQuery).hide();
-    $(queryButtonRef).hide();
+    $(queryButtonRef).hide();*/
 
     $('.buttonset').on('click', setQueryBar);
 });
