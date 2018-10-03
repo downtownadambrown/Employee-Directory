@@ -12,19 +12,17 @@
 </head>
 
 <body>
-<div class="container-left clearfix">
+<div class="container-left">
     <header>
-
         <img src="address-book-icon.png" id="nav-brand">
         <nav>
             <ul>
-                <li><a href="" onclick="renderView();return false;">VIEW</a></li>
-                <li><a href=""
-                       onclick="addUser(nameQuery.value, officePhoneQuery.value, phoneNumQuery.value);return false;">ADD</a>
+                <li><a href="">VIEW</a></li>
+                <li><a href="">ADD</a>
                 </li>
-                <li><a href="" onclick="verifyUser(nameQuery.value);return false;">VERIFY</a></li>
-                <li><a href="" onclick="return false;">UPDATE</a></li>
-                <li><a href="" onclick="return false;">DELETE</a></li>
+                <li><a href="">VERIFY</a></li>
+                <li><a href="">UPDATE</a></li>
+                <li><a href="">DELETE</a></li>
             </ul>
         </nav>
     </header>
@@ -33,12 +31,13 @@
 <div class="container-right">
     <section class="searchbar">
         <div class="inputWrapper">
-        <input type="name" class="field field1" id="nameField" aria-describedby="searchUser" placeholder="Enter Name">
-            <input type="phone" class="field field2" id="officePhoneField" aria-describedby="searchUser"
+            <input type="hidden" class="field field1" id="nameField" aria-describedby="searchUser"
+                   placeholder="Enter Name">
+            <input type="hidden" class="field field2" id="officePhoneField" aria-describedby="searchUser"
                    placeholder="Enter Office Number">
-            <input type="name" class="field field3" id="phoneNumField" aria-describedby="searchUser"
+            <input type="hidden" class="field field3" id="phoneNumField" aria-describedby="searchUser"
                    placeholder="Enter Phone Number">
-            <button id="queryButton" type="submit"><img src="search.png" width="16px" height="16px"></button>
+            <button id="queryButton"><img src="search.png" width="16px" height="16px"></button>
         </div>
     </section>
     <main>
