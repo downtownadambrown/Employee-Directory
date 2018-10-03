@@ -53,6 +53,7 @@ ul li{
     width: 100%;
     flex-direction: row;
     display: flex;
+    min-height: 46px;
 }
 
 main {
