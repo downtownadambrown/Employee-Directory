@@ -1,6 +1,4 @@
-// app.js
-
-// employeeList = name, officeNum, phoneNum
+$(document).ready {
 
 const clearFields = function() {
     let fields = document.querySelectorAll('input');
@@ -48,12 +46,12 @@ const updateUser = function (updateName, updateOfficeNumber, updatePhoneNumber) 
         employeeList[locateUserByName(updateName)].phoneNum = updatePhoneNumber;
         renderView();
     }
-}
+};
 
 const deleteUser = function (removeName) {
     employeeList.splice(locateUserByName(removeName, 1));
     renderView();
-}
+};
 
 const renderView = function () {
     let finalHTML = ``;
@@ -63,7 +61,7 @@ const renderView = function () {
     }
 
     contentRef.innerHTML = finalHTML;
-}
+};
 
 const setQueryBar = function (state) {
     if (state === 'view') {
@@ -96,7 +94,7 @@ const setQueryBar = function (state) {
         phoneNumQuery.type = "hidden";
         queryButtonRef.visibility = "visible";
     }
-}
+};
 
 const navList = document.querySelectorAll('li');
 const nameQuery = document.querySelector('#nameField');
@@ -104,3 +102,6 @@ const officePhoneQuery = document.querySelector('#officePhoneField');
 const phoneNumQuery = document.querySelector('#phoneNumField');
 const queryButtonRef = document.querySelector('#queryButton');
 const contentRef = document.querySelector('main');
+
+
+};
