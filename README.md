@@ -7,3 +7,9 @@ The goal of this project was to create a web application that simulates that of 
 * Update a user's personal information
 * Remove a user from the directory
 * View the current directory
+
+# Utilities/Tools Used
+
+* HTML5
+* hand-coded CSS3
+* ES6 Javascript
